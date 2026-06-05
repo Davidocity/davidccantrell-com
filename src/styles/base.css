@@ -62,3 +62,38 @@ ul, ol {
 body {
   overflow-x: hidden;
 }
+
+.social-links {
+  margin-top: 2rem;
+}
+
+.linkedin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #1a1a1a;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.linkedin-link:hover {
+  opacity: 0.7;
+}
+
+.linkedin-icon {
+  font-size: 1.4rem;
+}
+
+.linkedin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.linkedin-link:hover {
+  color: var(--color-primary);
+}

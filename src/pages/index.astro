@@ -1,37 +1,83 @@
 ---
-import Posts from "@/components/Posts.astro";
-import config from "@/config/config.json";
 import Base from "@/layouts/Base.astro";
-import Pagination from "@/layouts/components/Pagination.astro";
-import { getSinglePage } from "@/lib/contentParser.astro";
-import { sortByDate } from "@/lib/utils/sortFunctions";
-
-const posts = await getSinglePage("posts");
-const sortedPosts = sortByDate(posts);
-const totalPages = Math.ceil(posts.length / config.settings.pagination);
-const currentPosts = sortedPosts.slice(0, config.settings.pagination);
+import { FaLinkedin } from "react-icons/fa";
 ---
 
 <Base
-  title="The blog and website of David C Cantrell"
-  description="Make the most of your trip to Kyushu with comprehensive itineraries and practical guides to the essential attractions in each prefecture."
+  title="The blog and website of David C. Cantrell"
+  description="The personal website of David C. Cantrell."
   hideSidebar={true}
 >
-  <section slot="hero" class="hero-band">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-title">David C. Cantrell</h1>
-        <p class="hero-text">
-          Make the most of your trip to Kyushu with our comprehensive Kyushu
-          itineraries and rundown of essential attractions in each prefecture of
-          Kyushu.
-        </p>
-      </div>
+  <section class="personal-home">
+    <div class="personal-home__image">
+      <img
+        src="/images/david-line-drawing.webp"
+        alt="Line drawing of David C. Cantrell"
+      />
+    </div>
+
+    <div class="personal-home__content">
+      <h1>David C. Cantrell</h1>
+
+      <p>
+        I’m a veteran digital marketing executive and entrepreneur with a decades-long connection to Japan, now living in Kyushu.
+      </p>
+
+      <div class="social-links">
+  <a
+    href="https://www.linkedin.com/in/davidcantrell/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="linkedin-link"
+  >
+    <FaLinkedin className="linkedin-icon" />
+    <span>LinkedIn</span>
+  </a>
+</div>
+
     </div>
   </section>
-
-  <section class="section">
-    <Posts posts={currentPosts} columns={3} className="mb-16" />
-    <Pagination currentPage={1} totalPages={totalPages} />
-  </section>
 </Base>
+
+<style>
+  .personal-home {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+    padding: 5rem 0 7rem;
+  }
+
+  .personal-home__image img {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .personal-home__content {
+    max-width: 720px;
+  }
+
+  .personal-home__content h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+
+  .personal-home__content p {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: #333;
+  }
+
+  @media (max-width: 768px) {
+    .personal-home {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 3rem 0 5rem;
+    }
+
+    .personal-home__image img {
+      max-width: 220px;
+    }
+  }
+</style>
