@@ -5,18 +5,18 @@
       "url": "/"
     },
     {
-      "name": "about",
+      "name": "contact",
       "url": "/about"
     }
   ],
   "footer": [
     {
-      "name": "about",
-      "url": "/about"
+      "name": "home",
+      "url": "/"
     },
     {
-      "name": "Privacy Policy",
-      "url": "/privacy-policy"
+      "name": "contact",
+      "url": "/about"
     }
   ]
 }
