@@ -1,0 +1,64 @@
+/* Base document styles */
+html {
+  overflow-y: scroll;
+}
+
+body {
+  background-color: #f7f7f5;
+  color: #1a1a1a;
+
+  /* Typography improvements */
+  line-height: 1.6;
+  font-weight: 400;
+
+  /* Font smoothing */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Improve readability of paragraph text */
+p {
+  color: #333;
+  margin-bottom: 1em;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #1a1a1a;
+  line-height: 1.25;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Lists */
+ul, ol {
+  margin-bottom: 1em;
+  padding-left: 1.25em;
+}
+
+/* Selection color (subtle polish) */
+::selection {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Prevent horizontal overflow issues */
+body {
+  overflow-x: hidden;
+}

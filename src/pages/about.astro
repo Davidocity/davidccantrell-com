@@ -1,0 +1,153 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
+
+import config from "@/config/config.json";
+import { markdownify } from "@/lib/utils/textConverter";
+import { FaAddressCard, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+
+const entry = (await getEntry("about", "-index")) as CollectionEntry<"about">;
+const { Content } = await render(entry);
+
+const { title, meta_title, image, image_caption } = entry.data;
+const { contact_form_action } = config.params;
+const { address, email, phone } = config.contactinfo;
+---
+
+<Base title={title} meta_title={meta_title} image={image}>
+  <!-- ABOUT CONTENT -->
+  <section class="section">
+    <div class="container">
+      <article>
+        <div class="page-header">
+          <h1 class="post-title">{title}</h1>
+        </div>
+
+        {
+          image && (
+            <div class="page-image">
+              <figure>
+                <Image
+                  src={image}
+                  width={1000}
+                  height={500}
+                  alt={title}
+                  class="w-full rounded-none"
+                />
+                {image_caption && (
+                  <figcaption class="image-caption">
+                    {image_caption}
+                  </figcaption>
+                )}
+              </figure>
+            </div>
+          )
+        }
+
+        <div class="page-wrap">
+          <div class="content mb-16 text-left">
+            <Content />
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="section pt-0">
+    <div class="container">
+      <div class="page-wrap">
+        <h2 class="page-heading mb-10">Get In Touch</h2>
+
+        <p class="mb-8 text-center text-text">
+          Have a question about Kyushu or Japan travel? I’m happy to help—send
+          me a message below.
+        </p>
+
+        <!-- CONTACT INFO -->
+        <div class="mb-12">
+          <p class="mb-8 text-2xl font-bold text-text-dark text-center">
+            Contact Info
+          </p>
+
+          <ul class="flex flex-col space-y-8">
+            <li class="flex items-start">
+              <FaAddressCard className="mr-4 mt-1 text-primary text-xl" />
+              <div>
+                <p class="font-semibold text-text-dark">Address</p>
+                <p set:html={markdownify(address)} class="mt-1 leading-5" />
+              </div>
+            </li>
+
+            <li class="flex items-start">
+              <FaEnvelope className="mr-4 mt-1 text-primary text-xl" />
+              <div>
+                <p class="font-semibold text-text-dark">Email</p>
+                <p set:html={markdownify(email)} class="mt-1 leading-5 content" />
+              </div>
+            </li>
+
+            <li class="flex items-start">
+              <FaPhoneAlt className="mr-4 mt-1 text-primary text-xl" />
+              <div>
+                <p class="font-semibold text-text-dark">Phone</p>
+                <p set:html={markdownify(phone)} class="mt-1 leading-5" />
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- CONTACT FORM -->
+        <form
+          class="contact-form row gy-3"
+          method="POST"
+          action={contact_form_action}
+        >
+          <div class="col-12 md:col-6">
+            <label class="mb-2 block" for="name">
+              Name <span class="text-red-600">*</span>
+            </label>
+            <input class="form-input w-full" name="name" type="text" required />
+          </div>
+
+          <div class="col-12 md:col-6">
+            <label class="mb-2 block" for="email">
+              Email <span class="text-red-600">*</span>
+            </label>
+            <input
+              class="form-input w-full"
+              name="email"
+              type="email"
+              required
+            />
+          </div>
+
+          <div class="col-12">
+            <label class="mb-2 block" for="subject">Subject</label>
+            <input class="form-input w-full" name="subject" type="text" />
+          </div>
+
+          <div class="col-12">
+            <label class="mb-2 block" for="message">
+              Message <span class="text-red-600">*</span>
+            </label>
+            <textarea
+              class="form-textarea w-full"
+              name="message"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+
+          <div class="col-12 text-center">
+            <button class="btn btn-primary mt-2 px-6 py-2">
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</Base>

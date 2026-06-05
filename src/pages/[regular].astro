@@ -1,0 +1,60 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Image } from "astro:assets";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { render } from "astro:content";
+
+export async function getStaticPaths() {
+  const pages = await getSinglePage("pages");
+
+  const paths = pages.map((page) => ({
+    params: {
+      regular: page.id,
+    },
+    props: { page },
+  }));
+
+  return paths;
+}
+
+const { page } = Astro.props;
+const { title, meta_title, description, image } = page.data;
+const { Content } = await render(page);
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <section class="section">
+    <div class="container">
+      <article>
+        <div class="page-header">
+          <h1 class="post-title">{title}</h1>
+        </div>
+
+        {
+          image && (
+            <div class="page-image">
+              <Image
+                src={image}
+                width={1000}
+                height={500}
+                alt={title}
+                class="w-full rounded-none"
+              />
+            </div>
+          )
+        }
+
+        <div class="page-wrap">
+          <div class="content mb-16 text-left">
+            <Content />
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,46 @@
+{
+  "aboutMe": {
+    "title": "About Me",
+    "line1": "I’m David, an American living in Japan.",
+    "line2": "I write about travel, photography, and place.",
+    "line3": "This site shares practical advice and personal perspective.",
+    "aboutUrl": "/about"
+  },
+  "sections": [
+    {
+      "title": "Featured Posts",
+      "posts": [
+        "post-7",
+        "post-6",
+        "post-5"
+      ]
+    },
+    {
+      "title": "Kyushu Guides",
+      "posts": [
+        "post-4",
+        "post-3",
+        "post-2",
+        "post-1"
+      ]
+    },
+    {
+      "title": "Best Photography Spots",
+      "posts": [
+        "post-7",
+        "post-5",
+        "post-3",
+        "post-1"
+      ]
+    },
+     {
+      "title": "Hiking In Kyushu",
+      "posts": [
+        "post-7",
+        "post-5",
+        "post-3",
+        "post-1"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "site": {
+    "title": "david charles cantrell",
+    "base_url": "https://davidccantrell.com",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/favicon.png",
+    "logo": "",
+    "logo_width": "200",
+    "logo_height": "34",
+    "logo_text": "david charles cantrell"
+  },
+
+  "settings": {
+    "pagination": 10
+  },
+
+  "metadata": {
+    "meta_author": "David C Cantrell",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "David C Cantrell's personal website and blog."  },
+
+  "google_tag_manager": {
+    "enable": false,
+    "gtm_id": "GTM-XXXXXX"
+  },
+
+  "params": {
+    "contact_form_action": "#",
+    "copyright": "Copyright © 2026 [davidccantrell.com](https://www.davidccantrell.com)"
+  },
+
+  "contactinfo": {
+    "address": "41 W. Highway 14 Unit 1238 <br/> Spearfish, SD 57783",
+    "email": "david@davidccantrell.com",
+    "phone": "+1 949-331-0799"
+  }
+}

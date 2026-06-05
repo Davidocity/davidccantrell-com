@@ -1,0 +1,37 @@
+---
+import Posts from "@/components/Posts.astro";
+import config from "@/config/config.json";
+import Base from "@/layouts/Base.astro";
+import Pagination from "@/layouts/components/Pagination.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+
+const posts = await getSinglePage("posts");
+const sortedPosts = sortByDate(posts);
+const totalPages = Math.ceil(posts.length / config.settings.pagination);
+const currentPosts = sortedPosts.slice(0, config.settings.pagination);
+---
+
+<Base
+  title="The blog and website of David C Cantrell"
+  description="Make the most of your trip to Kyushu with comprehensive itineraries and practical guides to the essential attractions in each prefecture."
+  hideSidebar={true}
+>
+  <section slot="hero" class="hero-band">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">David C. Cantrell</h1>
+        <p class="hero-text">
+          Make the most of your trip to Kyushu with our comprehensive Kyushu
+          itineraries and rundown of essential attractions in each prefecture of
+          Kyushu.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <Posts posts={currentPosts} columns={3} className="mb-16" />
+    <Pagination currentPage={1} totalPages={totalPages} />
+  </section>
+</Base>

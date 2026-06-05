@@ -1,0 +1,45 @@
+---
+import sidebar from "@/config/sidebar.json";
+import { getSinglePage } from "@/lib/contentParser.astro";
+
+const allPosts = await getSinglePage("posts");
+
+const getPostBySlug = (slug: string) =>
+  allPosts.find((post) => post.id === slug);
+
+const sections = sidebar.sections.map((section) => ({
+  title: section.title,
+  posts: section.posts
+    .map((slug) => getPostBySlug(slug))
+    .filter(Boolean),
+}));
+---
+
+<aside class="site-sidebar">
+  <section class="sidebar-block">
+    <h2 class="sidebar-title">{sidebar.aboutMe.title}</h2>
+    <p>{sidebar.aboutMe.line1}</p>
+    <p>{sidebar.aboutMe.line2}</p>
+    <p>{sidebar.aboutMe.line3}</p>
+    <p>
+      <a href={sidebar.aboutMe.aboutUrl} class="sidebar-link">Read more</a>
+    </p>
+  </section>
+
+  {
+    sections.map((section) => (
+      <section class="sidebar-block">
+        <h2 class="sidebar-title">{section.title}</h2>
+        <ul class="sidebar-post-list">
+          {section.posts.slice(0, 5).map((post) => (
+            <li>
+              <a href={`/blog/${post!.id}`} class="sidebar-link">
+                {post!.data.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</aside>

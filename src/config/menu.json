@@ -1,0 +1,22 @@
+{
+  "main": [
+    {
+      "name": "home",
+      "url": "/"
+    },
+    {
+      "name": "about",
+      "url": "/about"
+    }
+  ],
+  "footer": [
+    {
+      "name": "about",
+      "url": "/about"
+    },
+    {
+      "name": "Privacy Policy",
+      "url": "/privacy-policy"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+---
+import { IoSearch } from "react-icons/io5";
+---
+
+<header class="header pt-6">
+  <nav class="navbar container">
+    <!-- LOGO -->
+    <div class="order-0">
+      <a href="/" class="logo-text">david charles cantrell</a>
+    </div>
+
+    <!-- MOBILE TOGGLE -->
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+
+    <!-- OPEN BUTTON -->
+    <label
+      id="show-button"
+      for="nav-toggle"
+      class="order-2 flex cursor-pointer items-center text-black md:hidden"
+    >
+      <svg class="h-6 fill-current" viewBox="0 0 20 20">
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V15z"></path>
+      </svg>
+    </label>
+
+    <!-- CLOSE BUTTON -->
+    <label
+      id="hide-button"
+      for="nav-toggle"
+      class="order-2 hidden cursor-pointer items-center text-black md:hidden"
+    >
+      <svg class="h-6 fill-current" viewBox="0 0 20 20">
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"
+        ></polygon>
+      </svg>
+    </label>
+
+    <!-- NAV -->
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-3 hidden w-full md:order-1 md:flex md:w-auto items-center gap-6"
+    >
+      <li class="nav-item">
+        <a href="/" class="nav-link block">home</a>
+      </li>
+
+      <li class="nav-item">
+        <a href="/about" class="nav-link block">about</a>
+      </li>
+
+      <!-- SEARCH -->
+      <li class="nav-item">
+        <a
+          href="/search"
+          class="nav-link flex items-center"
+          aria-label="search"
+        >
+          <IoSearch className="text-lg" />
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
