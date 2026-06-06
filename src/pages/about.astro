@@ -59,8 +59,11 @@ const { address, email, phone } = config.contactinfo;
   <section class="section pt-0">
     <div class="container">
       <div class="page-wrap">
-        <p class="mb-8 text-center">
-          Feel free to reach out!
+        <p class="mb-2 text-left">
+          For personal, professional, or media inquiries, feel free to contact me.
+        </p>
+        <p class="mb-8 text-left">
+          Note that I currently reside in Kumamoto, Japan.
         </p>
 
         <!-- CONTACT INFO -->
@@ -83,13 +86,6 @@ const { address, email, phone } = config.contactinfo;
               </div>
             </li>
 
-            <li class="flex items-start">
-              <FaPhoneAlt className="mr-4 mt-1 text-primary text-xl" />
-              <div>
-                <p class="font-semibold text-text-dark">Phone</p>
-                <p set:html={markdownify(phone)} class="mt-1 leading-5" />
-              </div>
-            </li>
           </ul>
         </div>
 

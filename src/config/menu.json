@@ -11,12 +11,12 @@
   ],
   "footer": [
     {
-      "name": "home",
-      "url": "/"
+      "name": "",
+      "url": ""
     },
     {
-      "name": "contact",
-      "url": "/about"
+      "name": "",
+      "url": ""
     }
   ]
 }
